@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/main.css">
+    <link rel="stylesheet" href="snake.css">
+    <title>Dorean Snake</title>
+</head>
+<body>
+    <header>
+        <ul class="menu">
+            <li>
+                <a href="/index.html">Home</a>
+            </li>
+            <li>
+                <a href="/games/index.html">Games</a>
+            </li>
+            <li>
+                <a href="/simulations/index.html">Simulations</a>
+            </li>
+        </ul>
+    </header>
+    <div id="container">
+        <h1 id="score">Score: 0</h1>
+        <canvas id="gameCanvas" width="400" height="400"></canvas>
+        <div id="settings">
+            <label for="gridSizeInput">Grid Size (e.g., 9 for 9x9): </label>
+            <input type="number" id="gridSizeInput" value="9" min="5" max="50">
+            <button id="updateGrid">Update Grid Size</button>
+        </div>
+        <p id="message">Press any key to start</p>
+    </div>
+    <script src="/games/snake/snake.js"></script>
+</body>
+</html>
