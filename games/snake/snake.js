@@ -4,7 +4,7 @@ window.onload = function() {
     const scoreDisplay = document.getElementById("score");
     const messageDisplay = document.getElementById("message");
     const gridSizeInput = document.getElementById("gridSizeInput");
-    const updateGridBtn = document.getElementById("updateGrid");
+    const updateGridBtn = document.getElementById("updateSettings");
   
     let gridSize = parseInt(gridSizeInput.value) || 9;
     let cellSize = canvas.width / gridSize;
