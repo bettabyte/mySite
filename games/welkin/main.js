@@ -63,7 +63,8 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(updatePizza, (1000 / PPSPS));
 
     //click pizza function
-    pizzaIMG.addEventListener("click", function () {
+    pizzaIMG.addEventListener("touchstart", function () {
+        event.preventDefault();
         pizza += clickIncrease;
         pizzaNum.textContent = Math.round(pizza);
         localStorage.setItem('pizza', Math.round(pizza));
