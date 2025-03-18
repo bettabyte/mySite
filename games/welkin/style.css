@@ -1,0 +1,14 @@
+main {
+    color: orange;
+}
+button {
+    background-color: darkblue;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background-color: blue;
+}
