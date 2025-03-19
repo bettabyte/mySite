@@ -12,3 +12,9 @@ button {
 button:hover {
     background-color: blue;
 }
+#pizzaIMG {
+    cursor: pointer;
+    display: block;
+    width: 200px;
+    height: auto;
+}

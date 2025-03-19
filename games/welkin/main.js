@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ppsNum.textContent = pps;
         localStorage.setItem('pps', pps);
 
-        clickIncrease = Math.floor(pps / 2);
+        clickIncrease = Math.floor((pps + 4) / 4) || 1;
         localStorage.setItem('clickIncrease', clickIncrease);
     };
     function updatePizza() {
@@ -55,20 +55,61 @@ document.addEventListener("DOMContentLoaded", function () {
         pizzaNum.textContent = Math.round(pizza);
         localStorage.setItem('pizza', Math.round(pizza));
     }
+    setInterval(updatePizza, (1000 / PPSPS));
+
+    //console commands
     window.cheatPizza = function (num) {
         pizza += num;
         pizzaNum.textContent = Math.round(pizza);
         localStorage.setItem('pizza', Math.round(pizza));
+        console.log("You have added "+num+" pizzas.");
     };
-    setInterval(updatePizza, (1000 / PPSPS));
+    window.resetGame = function () {
+        pizza = 0;
+        pps = 0;
+        crew = 0;
+        deck = 0;
+        lead = 0;
+        con = 0;
+        crewCost = 100;
+        deckCost = 1000;
+        leadCost = 2500;
+        conCost = 5000;
+
+        localStorage.setItem('pizza', 0);
+        localStorage.setItem('pps', 0);
+        localStorage.setItem('crew', 0);
+        localStorage.setItem('deck', 0);
+        localStorage.setItem('lead', 0);
+        localStorage.setItem('con', 0);
+        localStorage.setItem('crewCost', 100);
+        localStorage.setItem('deckCost', 1000);
+        localStorage.setItem('leadCost', 2500);
+        localStorage.setItem('conCost', 5000);
+        localStorage.setItem('clickIncrease', 1);
+
+        pizzaNum.textContent = 0;
+        ppsNum.textContent = 0;
+        crewNum.textContent = 0;
+        deckNum.textContent = 0;
+        leadNum.textContent = 0;
+        conNum.textContent = 0;
+        crewCostElement.textContent = 100;
+        deckCostElement.textContent = 1000;
+        leadCostElement.textContent = 2500;
+        conCostElement.textContent = 5000;
+    };
 
     //click pizza function
-    pizzaIMG.addEventListener("touchstart", function () {
+    function pizzaClicked(event) {
         event.preventDefault();
+        console.log("clicked")
+        console.log(clickIncrease+" "+pps)
         pizza += clickIncrease;
         pizzaNum.textContent = Math.round(pizza);
         localStorage.setItem('pizza', Math.round(pizza));
-    });
+    };
+    pizzaIMG.addEventListener("pointerdown", pizzaClicked);
 
     //upgrade button functions
     document.getElementById("crewButton").addEventListener("click", function () {
@@ -83,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem('crew', crew);
             localStorage.setItem('crewCost', crewCost);
         }
-    })
+    });
     document.getElementById("deckButton").addEventListener("click", function () {
         if (pizza >= deckCost) {
             pizza -= deckCost;
@@ -96,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem('deck', deck);
             localStorage.setItem('deckCost', deckCost);
         }
-    })
+    });
     document.getElementById("leadButton").addEventListener("click", function () {
         if (pizza >= leadCost) {
             pizza -= leadCost;
@@ -109,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem('lead', lead);
             localStorage.setItem('leadCost', leadCost);
         }
-    })
+    });
     document.getElementById("conButton").addEventListener("click", function () {
         if (pizza >= conCost) {
             pizza -= conCost;
@@ -122,7 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem('con', con);
             localStorage.setItem('conCost', conCost);
         }
-    })
+    });
 
     //initial update to display stored values.
     pizzaNum.textContent = Math.round(pizza);
