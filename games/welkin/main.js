@@ -18,10 +18,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const conNum = document.getElementById("conNum");
 
     //base upgrade costs
-    let crewCost = parseFloat(localStorage.getItem('crewCost')) || 100;
-    let deckCost = parseFloat(localStorage.getItem('deckCost')) || 1000;
-    let leadCost = parseFloat(localStorage.getItem('leadCost')) || 2500;
-    let conCost = parseFloat(localStorage.getItem('conCost')) || 5000;
+    let crewCost = parseFloat(localStorage.getItem('crewCost')) || 15;
+    let deckCost = parseFloat(localStorage.getItem('deckCost')) || 200;
+    let leadCost = parseFloat(localStorage.getItem('leadCost')) || 1420;
+    let conCost = parseFloat(localStorage.getItem('conCost')) || 15000;
 
     //upgrade elements
     const crewCostElement = document.getElementById("crewCost");
@@ -29,13 +29,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const leadCostElement = document.getElementById("leadCost");
     const conCostElement = document.getElementById("conCost");
 
-    //upgrade constants
+    //upgrade constants and pizzas per click
     const costIncreasePercent = 1.15;
-    const crewUpNum = 1;
-    const deckUpNum = 5;
-    const leadUpNum = 25;
-    const conUpNum = 100;
-
+    const crewUpNum = 0.1;
+    const deckUpNum = 1;
+    const leadUpNum = 8;
+    const conUpNum = 69;
     let clickIncrease = parseInt(localStorage.getItem('clickIncrease')) || 1;
 
     //how many updates to PPS every second
@@ -98,13 +97,12 @@ document.addEventListener("DOMContentLoaded", function () {
         deckCostElement.textContent = 1000;
         leadCostElement.textContent = 2500;
         conCostElement.textContent = 5000;
+        console.log("Game data reset.");
     };
 
     //click pizza function
     function pizzaClicked(event) {
         event.preventDefault();
-        console.log("clicked")
-        console.log(clickIncrease+" "+pps)
         pizza += clickIncrease;
         pizzaNum.textContent = Math.round(pizza);
         localStorage.setItem('pizza', Math.round(pizza));
