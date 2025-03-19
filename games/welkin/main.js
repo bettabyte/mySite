@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //upgrade constants and pizzas per click
     const costIncreasePercent = 1.15;
-    const crewUpNum = 0.1;
+    const crewUpNum = 0.2;
     const deckUpNum = 1;
     const leadUpNum = 8;
     const conUpNum = 69;
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //pizza and pps update functions
     function updatePPS() {
         pps = (crew * crewUpNum) + (deck * deckUpNum) + (lead * leadUpNum) + (con * conUpNum);
-        ppsNum.textContent = pps;
+        ppsNum.textContent = Math.floor(pps*10)/10;
         localStorage.setItem('pps', pps);
 
         clickIncrease = Math.floor((pps + 4) / 4) || 1;
@@ -70,10 +70,10 @@ document.addEventListener("DOMContentLoaded", function () {
         deck = 0;
         lead = 0;
         con = 0;
-        crewCost = 100;
-        deckCost = 1000;
-        leadCost = 2500;
-        conCost = 5000;
+        crewCost = 15;
+        deckCost = 200;
+        leadCost = 1420;
+        conCost = 15000;
 
         localStorage.setItem('pizza', 0);
         localStorage.setItem('pps', 0);
@@ -81,10 +81,10 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem('deck', 0);
         localStorage.setItem('lead', 0);
         localStorage.setItem('con', 0);
-        localStorage.setItem('crewCost', 100);
-        localStorage.setItem('deckCost', 1000);
-        localStorage.setItem('leadCost', 2500);
-        localStorage.setItem('conCost', 5000);
+        localStorage.setItem('crewCost', 15);
+        localStorage.setItem('deckCost', 200);
+        localStorage.setItem('leadCost', 1420);
+        localStorage.setItem('conCost', 15000);
         localStorage.setItem('clickIncrease', 1);
 
         pizzaNum.textContent = 0;
@@ -93,10 +93,10 @@ document.addEventListener("DOMContentLoaded", function () {
         deckNum.textContent = 0;
         leadNum.textContent = 0;
         conNum.textContent = 0;
-        crewCostElement.textContent = 100;
-        deckCostElement.textContent = 1000;
-        leadCostElement.textContent = 2500;
-        conCostElement.textContent = 5000;
+        crewCostElement.textContent = 15;
+        deckCostElement.textContent = 200;
+        leadCostElement.textContent = 1420;
+        conCostElement.textContent = 15000;
         console.log("Game data reset.");
     };
 
