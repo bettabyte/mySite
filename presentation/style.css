@@ -1,0 +1,46 @@
+.sticky-note {
+    border: 1px solid #0a0;
+    background-color: #111;
+    color: green;
+    padding: 0 15px;
+    margin: 7.5px 0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.sticky-note:hover {
+    transform: scale(1.03);
+    background-color: #1b1b1b;
+}
+.subtopic-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    /*gap: 1rem;*/
+}
+#detail-view {
+    margin-top: 1rem;
+}
+.topic-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 1em;
+    border-radius: 4px;
+}
+#back-btn {
+    margin: 0;
+    background: none;
+    color: #0a0;
+    border: 1px solid #0a0;
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#back-btn:hover {
+    background-color: #0a0;
+    color: #000;
+}
+.hidden {
+    display: none;
+}
